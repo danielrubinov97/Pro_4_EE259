@@ -68,27 +68,43 @@ using namespace std;
 OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN, int x, int y)
 	: BURSAR_INFO(x, y)
 {
-	strcpy(objectName, ObjN);
+	strcpy_s(objectName, ObjN);
 	// your code goes below:
+	cout << "++++++++ P4 START ++++" << endl;
+	cout << "++++++++ P4 OUTPUT FROM OVERLOADED_BURSAR CONSTRUCTOR: " << endl;
+	cout << "++++++++ P4 AN OBJECT OF OVERLOADED_BURSAR WITH THE NAME OF " << objectName <<  " IS CREATED." << endl;
+	cout << "++++++++ P4 END ++++" << endl;
 }
 
 OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN)
 	: BURSAR_INFO(0, 0)
 {
 	// no output is generated; base classes assign n=0 and p=0 and do not generate outputs; 
-	strcpy(objectName, ObjN);
+	strcpy_s(objectName, ObjN);
 }
 
 void 
 OVERLOADED_BURSAR::PRINT_IDS()
 {
 	// your code goes below:
+	cout << "++++++++ P4 START ++++" << endl;
+	cout << "++++++++ P4 OUTPUT FROM PRINT_IDS METHOD FOR OBJECT " << objectName << ":" << endl;
+	LIST_IDS();
+	cout << "++++++++ P4 END ++++" << endl;
 }
 
 void 
 OVERLOADED_BURSAR::ADD_STUDENT(char * F, char *L, int x)
 {
 	// your code goes below:
+	cout << "++++++ P4 START ++++" << endl;
+	cout << "++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR OBJECT " << objectName << ":" << endl;
+	if (n <= 20 && x > 0 && x < 10000) {
+
+	}
+	else {
+		cout << "++++++++ P4 INPUT ERROR." << endl;
+	}
 }
 
 void 
@@ -131,7 +147,7 @@ OVERLOADED_BURSAR
 OVERLOADED_BURSAR::operator + (OVERLOADED_BURSAR Obj)
 {
 	OVERLOADED_BURSAR TEMP; // create a temp object
-	strcpy(TEMP.objectName, "TEMP");
+	strcpy_s(TEMP.objectName, "TEMP");
 	// your code goes below:
 
 	return TEMP;

@@ -95,13 +95,13 @@ SORT_INFO::SORT_ID(char * DIRECTION)
 			ids[min_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[min_pos]);
-			strcpy(FirstName[min_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[min_pos]);
+			strcpy_s(FirstName[min_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[min_pos]);
-			strcpy(LastName[min_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[min_pos]);
+			strcpy_s(LastName[min_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
@@ -138,13 +138,13 @@ SORT_INFO::SORT_ID(char * DIRECTION)
 			ids[max_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[max_pos]);
-			strcpy(FirstName[max_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[max_pos]);
+			strcpy_s(FirstName[max_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[max_pos]);
-			strcpy(LastName[max_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[max_pos]);
+			strcpy_s(LastName[max_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
@@ -198,13 +198,13 @@ SORT_INFO::SORT_GRADE(char * DIRECTION, int x)
 			ids[min_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[min_pos]);
-			strcpy(FirstName[min_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[min_pos]);
+			strcpy_s(FirstName[min_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[min_pos]);
-			strcpy(LastName[min_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[min_pos]);
+			strcpy_s(LastName[min_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
@@ -241,13 +241,13 @@ SORT_INFO::SORT_GRADE(char * DIRECTION, int x)
 			ids[max_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[max_pos]);
-			strcpy(FirstName[max_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[max_pos]);
+			strcpy_s(FirstName[max_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[max_pos]);
-			strcpy(LastName[max_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[max_pos]);
+			strcpy_s(LastName[max_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
@@ -284,13 +284,13 @@ SORT_INFO::SORT_NAME(char * DIRECTION)
 
 		for(i =0; i < n; i++)
 		{
-			strcpy(min_name, LastName[i]);
+			strcpy_s(min_name, LastName[i]);
 			min_pos = i;
 			for(j = i; j < n; j++)
 			{
 				if(strcmp(min_name, LastName[j]) > 0)
 				{
-					strcpy(min_name, LastName[j]);
+					strcpy_s(min_name, LastName[j]);
 					min_pos = j;
 				}
 				else{}
@@ -301,13 +301,13 @@ SORT_INFO::SORT_NAME(char * DIRECTION)
 			ids[min_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[min_pos]);
-			strcpy(FirstName[min_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[min_pos]);
+			strcpy_s(FirstName[min_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[min_pos]);
-			strcpy(LastName[min_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[min_pos]);
+			strcpy_s(LastName[min_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
@@ -327,13 +327,13 @@ SORT_INFO::SORT_NAME(char * DIRECTION)
 
 		for(i =0; i < n; i++)
 		{
-			strcpy(max_name, LastName[i]);
+			strcpy_s(max_name, LastName[i]);
 			max_pos = i;
 			for(j = i; j < n; j++)
 			{
 				if(strcmp(max_name, LastName[j]) < 0)
 				{
-					strcpy(max_name, LastName[j]);
+					strcpy_s(max_name, LastName[j]);
 					max_pos = j;
 				}
 				else{}
@@ -344,13 +344,13 @@ SORT_INFO::SORT_NAME(char * DIRECTION)
 			ids[max_pos] = tempo;
 
 			// swap names:
-			strcpy(tempo_name , FirstName[i]);
-			strcpy(FirstName[i] , FirstName[max_pos]);
-			strcpy(FirstName[max_pos], tempo_name);
+			strcpy_s(tempo_name , FirstName[i]);
+			strcpy_s(FirstName[i] , FirstName[max_pos]);
+			strcpy_s(FirstName[max_pos], tempo_name);
 
-			strcpy(tempo_name , LastName[i]);
-			strcpy(LastName[i] , LastName[max_pos]);
-			strcpy(LastName[max_pos], tempo_name);
+			strcpy_s(tempo_name , LastName[i]);
+			strcpy_s(LastName[i] , LastName[max_pos]);
+			strcpy_s(LastName[max_pos], tempo_name);
 
 			// swap grades:
 			for(k = 0; k < p; k++)
