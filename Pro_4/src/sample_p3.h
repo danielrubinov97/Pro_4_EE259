@@ -1,7 +1,5 @@
-#include <iostream>
-#include <fstream>
 #include <string.h>
-#include "/ee259/tools/pro_4/sample_p2.h" // implementation of base class
+#include "sample_p2.h" // implementation of base class
 
 using namespace std;
 
@@ -33,7 +31,7 @@ class BURSAR_INFO:public SORT_INFO{
 BURSAR_INFO::BURSAR_INFO(int x, int y)
 	: SORT_INFO(x, y) // call to base class which requires two parameters
 {
-	int i;
+	static int i;
 	if (x>0)
 	{
 		output_file_p4 << "++++++ P3 START ++++" << endl;
@@ -135,6 +133,6 @@ BURSAR_INFO::SORT_NAMES()
 {
 	output_file_p4 << "++++++ P3 START ++++" << endl;
 	output_file_p4 << "++++++ P3 OUTPUT FROM SORT_NAMES METHOD: " << endl;
-	SORT_NAME("ASCENDING");
+	SORT_NAME((char*)"ASCENDING");
 	output_file_p4 << "++++++ P3 END ++++" << endl;
 }// end method

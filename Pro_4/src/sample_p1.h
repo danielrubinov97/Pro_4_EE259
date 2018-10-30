@@ -1,6 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include "/ee259/tools/pro_4/sample_p0.h" // implementation of base class
+#include <string.h>
+#include "sample_p0.h" // implementation of base class
 
 using namespace std;
 
@@ -119,7 +118,7 @@ STUDENT_GRADE::LIST_GRADE(int x)
 void
 STUDENT_GRADE::LIST_RANGE(int x)
 {
-	int i, j;
+	static int i, j;
 	int min, max, range; 
 
 	output_file_p4 << "++ P1 START ++" << endl;

@@ -1,7 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <string.h>
 //#include "/ee259/tools/pro_4/sample_p3.h" // implementation of base class
+#include <string.h>
 #include "sample_p3.h" // implementation of base class
 
 using namespace std;
@@ -55,7 +53,7 @@ using namespace std;
 			// B2 remains unchanged;
 			// returns no values;
 
-        OVERLOADED_BURSAR operator + (OVERLOADED_BURSAR); // Example: B1 + B2;
+        //OVERLOADED_BURSAR operator + (OVERLOADED_BURSAR); // Example: B1 + B2;
                         // create a TEMP object; 
 			// copy the student ids, names and exams of B1 to TEMP
 			// and then append B2 elements to TEMP;
@@ -70,10 +68,10 @@ OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN, int x, int y)
 {
 	strcpy_s(objectName, ObjN);
 	// your code goes below:
-	cout << "++++++++ P4 START ++++" << endl;
-	cout << "++++++++ P4 OUTPUT FROM OVERLOADED_BURSAR CONSTRUCTOR: " << endl;
-	cout << "++++++++ P4 AN OBJECT OF OVERLOADED_BURSAR WITH THE NAME OF " << objectName <<  " IS CREATED." << endl;
-	cout << "++++++++ P4 END ++++" << endl;
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED_BURSAR CONSTRUCTOR: " << endl;
+	output_file_p4 << "++++++++ P4 AN OBJECT OF OVERLOADED_BURSAR WITH THE NAME OF " << objectName <<  " IS CREATED." << endl;
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN)
@@ -87,24 +85,32 @@ void
 OVERLOADED_BURSAR::PRINT_IDS()
 {
 	// your code goes below:
-	cout << "++++++++ P4 START ++++" << endl;
-	cout << "++++++++ P4 OUTPUT FROM PRINT_IDS METHOD FOR OBJECT " << objectName << ":" << endl;
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM PRINT_IDS METHOD FOR OBJECT " << objectName << ":" << endl;
 	LIST_IDS();
-	cout << "++++++++ P4 END ++++" << endl;
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 void 
 OVERLOADED_BURSAR::ADD_STUDENT(char * F, char *L, int x)
 {
 	// your code goes below:
-	cout << "++++++ P4 START ++++" << endl;
-	cout << "++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR OBJECT " << objectName << ":" << endl;
-	if (n <= 20 && x > 0 && x < 10000) {
-
+	output_file_p4 << "++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR OBJECT " << objectName << ":" << endl;
+	int indexOfLastStudent = n - 1;
+	int arrayLength = sizeof(ids) / sizeof(ids[0]); //For future compatibility to change the size of the ids array.
+	if (n < arrayLength && x > 0 && x < 10000) {
+		ids[indexOfLastStudent + 1] = x; //Sets the position of the last student to be add a new student above that.
+		strcpy_s(LastName[indexOfLastStudent + 1], L);
+		strcpy_s(FirstName[indexOfLastStudent + 1], F);
+		for (int i = 0; i < p; i++) {
+			grades[indexOfLastStudent + 1][i] = 0;
+		}
 	}
 	else {
-		cout << "++++++++ P4 INPUT ERROR." << endl;
+		output_file_p4 << "++++++++ P4 INPUT ERROR." << endl;
 	}
+	output_file_p4 << "++++++ P4 END ++++" << endl;
 }
 
 void 
@@ -143,12 +149,12 @@ OVERLOADED_BURSAR::operator = (OVERLOADED_BURSAR Obj)
 	// your code goes below:
 }
 
-OVERLOADED_BURSAR 
-OVERLOADED_BURSAR::operator + (OVERLOADED_BURSAR Obj)
-{
-	OVERLOADED_BURSAR TEMP; // create a temp object
-	strcpy_s(TEMP.objectName, "TEMP");
+//OVERLOADED_BURSAR 
+//OVERLOADED_BURSAR::operator + (OVERLOADED_BURSAR Obj)
+//{
+	//OVERLOADED_BURSAR TEMP; // create a temp object
+	//strcpy_s(TEMP.objectName, "TEMP");
 	// your code goes below:
 
-	return TEMP;
-}
+//	return ;// TEMP;
+//}

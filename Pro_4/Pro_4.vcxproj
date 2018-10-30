@@ -69,7 +69,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -115,6 +130,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="ho_p4" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main4_1.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\p4.h" />
+    <ClInclude Include="src\sample_p0.h" />
+    <ClInclude Include="src\sample_p1.h" />
+    <ClInclude Include="src\sample_p2.h" />
+    <ClInclude Include="src\sample_p3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="expected_output\out_4_expected_1.txt" />
+    <Text Include="expected_output\out_4_expected_2.txt" />
+    <Text Include="expected_output\out_4_expected_3.txt" />
+    <Text Include="expected_output\out_4_expected_4.txt" />
+    <Text Include="expected_output\out_4_expected_5.txt" />
+    <Text Include="src\studentGrade.txt" />
+    <Text Include="src\studentGrade_1.txt" />
+    <Text Include="src\studentGrade_2.txt" />
+    <Text Include="src\studentGrade_3.txt" />
+    <Text Include="src\studentGrade_4.txt" />
+    <Text Include="src\studentGrade_5.txt" />
+    <Text Include="src\studentId.txt" />
+    <Text Include="src\studentId_1.txt" />
+    <Text Include="src\studentId_2.txt" />
+    <Text Include="src\studentId_3.txt" />
+    <Text Include="src\studentId_4.txt" />
+    <Text Include="src\studentId_5.txt" />
+    <Text Include="src\studentName.txt" />
+    <Text Include="src\studentName_1.txt" />
+    <Text Include="src\studentName_2.txt" />
+    <Text Include="src\studentName_3.txt" />
+    <Text Include="src\studentName_4.txt" />
+    <Text Include="src\studentName_5.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

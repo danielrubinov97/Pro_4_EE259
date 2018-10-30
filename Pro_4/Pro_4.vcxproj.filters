@@ -14,4 +14,55 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ho_p4" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main4_1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\p4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sample_p0.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sample_p1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sample_p2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sample_p3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="expected_output\out_4_expected_1.txt" />
+    <Text Include="expected_output\out_4_expected_2.txt" />
+    <Text Include="expected_output\out_4_expected_3.txt" />
+    <Text Include="expected_output\out_4_expected_4.txt" />
+    <Text Include="expected_output\out_4_expected_5.txt" />
+    <Text Include="src\studentGrade.txt" />
+    <Text Include="src\studentGrade_1.txt" />
+    <Text Include="src\studentGrade_2.txt" />
+    <Text Include="src\studentGrade_3.txt" />
+    <Text Include="src\studentGrade_4.txt" />
+    <Text Include="src\studentGrade_5.txt" />
+    <Text Include="src\studentId.txt" />
+    <Text Include="src\studentId_1.txt" />
+    <Text Include="src\studentId_2.txt" />
+    <Text Include="src\studentId_3.txt" />
+    <Text Include="src\studentId_4.txt" />
+    <Text Include="src\studentId_5.txt" />
+    <Text Include="src\studentName.txt" />
+    <Text Include="src\studentName_1.txt" />
+    <Text Include="src\studentName_2.txt" />
+    <Text Include="src\studentName_3.txt" />
+    <Text Include="src\studentName_4.txt" />
+    <Text Include="src\studentName_5.txt" />
+  </ItemGroup>
 </Project>

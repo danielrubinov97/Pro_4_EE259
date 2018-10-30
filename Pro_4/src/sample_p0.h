@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-
+#include <string.h>
 using namespace std;
 
 ifstream input_file_p0; // declare a pointer to an input file;
@@ -35,7 +35,7 @@ STUDENT_ID::STUDENT_ID(int x)
 
 	for(i = 0; i < n; i++)
 	{
-		input_file_p0 >> ids[i];	
+		input_file_p0 >> ids[i];
 	}
 	input_file_p0.close(); // close input file;
 	input_file_p0.clear(); // rewind file pointer to the top of the file;

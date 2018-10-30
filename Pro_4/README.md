@@ -163,7 +163,7 @@ by one.  The output to out.4.txt file is as follows:
 If F, L and/or x has illegal values, the output to out.4.txt is:
 
 	++++++++ P4 START ++++
-	++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR objName1: 
+	++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR objName1: //FIX THIS OUTPUT!!!
 	++++++++ P4 INPUT ERROR.
 	++++++++ P4 END ++++
 
