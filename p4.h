@@ -1,8 +1,6 @@
-#include <iostream>
-#include <fstream>
-#include <string.h>
 //#include "/ee259/tools/pro_4/sample_p3.h" // implementation of base class
-#include "sample_p3.h" // implementation of base class
+#include <string.h>
+#include "/ee259/tools/pro_4/sample_p3.h" // implementation of base class
 
 using namespace std;
 
@@ -70,6 +68,10 @@ OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN, int x, int y)
 {
 	strcpy(objectName, ObjN);
 	// your code goes below:
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED_BURSAR CONSTRUCTOR: " << endl;
+	output_file_p4 << "++++++++ P4 AN OBJECT OF OVERLOADED_BURSAR WITH THE NAME OF " << objectName <<  " IS CREATED." << endl;
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 OVERLOADED_BURSAR::OVERLOADED_BURSAR(char * ObjN)
@@ -83,33 +85,112 @@ void
 OVERLOADED_BURSAR::PRINT_IDS()
 {
 	// your code goes below:
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM PRINT_IDS METHOD FOR OBJECT " << objectName << ":" << endl;
+	LIST_IDS();
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 void 
 OVERLOADED_BURSAR::ADD_STUDENT(char * F, char *L, int x)
 {
 	// your code goes below:
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM ADD_STUDENT METHOD FOR OBJECT " << objectName << ":" << endl;
+	int indexOfLastStudent = n - 1;
+	int arrayLength = sizeof(ids) / sizeof(ids[0]); //For future compatibility to change the size of the ids array.
+	if (n < arrayLength && x > 0 && x < 10000) { //Add Names Illegal Input!
+		ids[indexOfLastStudent + 1] = x; //Sets the position of the last student to be add a new student above that.
+		strcpy(LastName[indexOfLastStudent + 1], L);
+		strcpy(FirstName[indexOfLastStudent + 1], F);
+		for (int i = 0; i < p; i++) {
+			grades[indexOfLastStudent + 1][i] = 0;
+		}
+		output_file_p4 << "++++++++ P4 STUDENT " << L << ", " << F << " WITH ID " << x << "IS ADDED." << endl;
+		n = n + 1;
+		output_file_p4 << "++++++++ P4 NOW THERE ARE " << n << " STUDENTS." << endl;
+	}
+	else {
+		output_file_p4 << "++++++++ P4 INPUT ERROR." << endl;
+	}
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 void 
 OVERLOADED_BURSAR::DELETE_STUDENT(char * F, char *L, int x)
 {
 	// your code goes below:
+	int FOUND = 0, FOUND_POS;
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM DELETE_STUDENT METHOD FOR OBJECT " << objectName << ":" << endl;
+	if (x > 0 && x < 10000){ //Add Names Illegal Inputs!
+		for (int i = 0; i < n && FOUND == 0; i++){
+			if(x == ids[i]){
+				FOUND = 1;
+				FOUND_POS = i;
+			}
+		}
+		if (strcmp(LastName[FOUND_POS], L) == 0 && strcmp(FirstName[FOUND_POS], F) == 0 && FOUND == 1){
+			for (int i = FOUND_POS + 1; i < n; i++){
+				ids[i - 1] = ids[i];
+				strcpy(LastName[i-1], LastName[i]);
+				strcpy(FirstName[i-1], FirstName[i]);
+				for(int j = 0; j < p; j++){
+					grades[i-1][j] = grades[i][j];
+				}
+			}
+			output_file_p4 << "++++++++ P4 STUDENT " << L << ", " << F << " WITH ID " << x << " IS DELETED." << endl;
+			n = n-1;
+			output_file_p4 << "++++++++ P4 NOW THERE ARE " << n << " STUDENTS." << endl;
+		}
+		else if ((strcmp(LastName[FOUND_POS], L) != 0 || strcmp(FirstName[FOUND_POS], F) != 0 )&& FOUND == 1){
+		output_file_p4 << "++++++++ P4 NO SUCH STUDENT " << L << ", " << F << " WITH ID " << x << " IS FOUND." << endl;
+		
+		}
+		else if (FOUND = 0)
+		output_file_p4 << "++++++++ P4 NO SUCH STUDENT " << L << ", " << F << " WITH ID " << x << " IS FOUND." << endl;
+	}
+	else{
+		output_file_p4 << "++++++++ P4 INPUT ERROR." << endl;
+	}
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 int 
 OVERLOADED_BURSAR::operator == (OVERLOADED_BURSAR Obj)
 {
 	// your code goes below:
-
-	return 1; // modify this
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR == METHOD FOR OBJECT " << objectName << ": " << endl;
+	output_file_p4 << "++++++++ P4 CHECKING IF NUMBER OF STUDENTS IN " << objectName << " AND " << Obj.objectName << " ARE EQUAL:" << endl;
+	if (n ==  Obj.n){
+		output_file_p4 << "++++++++ P4 RETURNS TURE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return 1;
+	}else{
+		output_file_p4 << "++++++++ P4 RETURNS FALSE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return 0;
+	}
 }
 
 int 
 OVERLOADED_BURSAR::operator == (int x)
 {
 	// your code goes below:
-
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR == METHOD FOR OBJECT " << objectName << ":" << endl;
+	output_file_p4 << "++++++++ P4 CHECKING IF NUMBER OF STUDENTS IN " << objectName << " IS EQUAL TO " << x << ":"  << endl;
+	if (n ==  x){
+		output_file_p4 << "++++++++ P4 RETURNS TRUE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return 1;
+	}
+	else{
+		output_file_p4 << "++++++++ P4 RETURNS FALSE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return 0;
+	}
 	return 1; // modify this
 }
 
@@ -117,22 +198,136 @@ int
 OVERLOADED_BURSAR::operator > (OVERLOADED_BURSAR Obj)
 {
 	// your code goes below:
-
-	return 1; // modify this
+	int max, max_pos = 0, tempo;
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR > METHOD FOR OBJECT " << objectName << ":" <<  endl;
+	output_file_p4 << "++++++++ P4 CHECKING IF MAX IN " << objectName << " > MAX IN " << Obj.objectName << ":" << endl;
+	for(int i = 0; i < n; i++) {
+		max = grades[i][0];
+		for(int j = 0; j < p; j++){
+			if (max < grades[i][j]){
+				max = grades[i][j];
+				max_pos = j;
+			}
+		}
+		tempo = grades[i][max_pos];
+		grades[i][max_pos] = grades[i][0];
+		grades[i][0] = tempo;
+	}
+	max = grades[0][0];
+	for(int i = 0; i < n; i++){
+		if(max < grades[i][0]){
+			max = grades[i][0];
+			max_pos = i;
+		}
+	}
+	tempo = grades[max_pos][0];
+	grades[max_pos][0] = grades[0][0];
+	grades[0][0] = tempo;
+	//MAX FOR FIRST OBJECT IS grades[0][0];
+	//NOW FIND MAX FOR SECOND OBJECT.
+	for(int i = 0; i < Obj.n; i++) {
+		max = Obj.grades[i][0];
+		for(int j = 0; j < Obj.p; j++){
+			if (max < Obj.grades[i][j]){
+				max = Obj.grades[i][j];
+				max_pos = j;
+			}
+		}
+		tempo = Obj.grades[i][max_pos];
+		Obj.grades[i][max_pos] = Obj.grades[i][0];
+		Obj.grades[i][0] = tempo;
+	}
+	max = Obj.grades[0][0];
+	for(int i = 0; i < Obj.n; i++){
+		if(max < Obj.grades[i][0]){
+			max = Obj.grades[i][0];
+			max_pos = i;
+		}
+	}
+	tempo = Obj.grades[max_pos][0];
+	Obj.grades[max_pos][0] = Obj.grades[0][0];
+	Obj.grades[0][0] = tempo;
+	if (grades[0][0] > Obj.grades[0][0]){
+		output_file_p4 << "++++++++ P4 RETURNS TRUE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return 1;
+	}
+	else {
+		output_file_p4 << "++++++++ P4 RETURNS FALSE." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+	}
 }
 
 void 
 OVERLOADED_BURSAR::operator = (OVERLOADED_BURSAR Obj)
 {
 	// your code goes below:
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR = METHOD FOR OBJECT " << objectName << ":" << endl;
+	output_file_p4 << "++++++++ P4 CONTENTS OF OBJECT " << Obj.objectName << " IS ASSIGNED TO OBJECT " << objectName << "." << endl;
+	n = Obj.n;
+	p = Obj.p;
+	strcpy(objectName, Obj.objectName);
+	for(int i = 0; i < Obj.n; i++){
+		ids[i] = Obj.ids[i];
+		strcpy(LastName[i], Obj.LastName[i]);
+		strcpy(FirstName[i], Obj.FirstName[i]);
+	}
+	for(int i = 0; i < Obj.n; i++){
+		for(int j = 0; j < Obj.p; j++) {
+			grades[i][j] = Obj.grades[i][j];
+		}
+	}
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
 }
 
 OVERLOADED_BURSAR 
 OVERLOADED_BURSAR::operator + (OVERLOADED_BURSAR Obj)
 {
-	OVERLOADED_BURSAR TEMP; // create a temp object
-	strcpy(TEMP.objectName, "TEMP");
+	OVERLOADED_BURSAR TEMP("TempObj"); // create a temp object
+	strcpy(TEMP.objectName, "TempObj");
 	// your code goes below:
+	int arrayLength = sizeof(ids) / sizeof(ids[0]); //For future compatibility to change the size of the ids array.
+	output_file_p4 << "++++++++ P4 START ++++" << endl;
+	output_file_p4 << "++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR + METHOD FOR OBJECT " << objectName << ":" << endl;
+		
+	if (n + Obj.n > arrayLength || p != Obj.p){
+		cout << n + Obj.n << endl;
+		cout << p << " " << Obj.p << endl;
+		output_file_p4 << "++++++++ P4 INPUT ERROR." << endl;
+		output_file_p4 << "++++++++ P4 END ++++" << endl;
+		return TEMP;
+	}
+	//TEMP = *this;
 
-	return TEMP;
+	TEMP.n = n;
+	for(int i = 0; i < n; i++){
+		TEMP.ids[i] = ids[i];
+		strcpy(TEMP.LastName[i], LastName[i]);
+		strcpy(TEMP.LastName[i], LastName[i]);
+	}
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < p; j++){
+			TEMP.grades[i][j] = grades[i][j];
+		}
+	}
+
+	TEMP.n = TEMP.n + Obj.n;
+	for (int i = 0; i < Obj.n; i++){
+		TEMP.ids[n + i] = Obj.ids[i];
+		strcpy(LastName[n+i],Obj.LastName[i]);
+		strcpy(FirstName[n+i],Obj.FirstName[i]);
+	}
+
+	for(int i = 0; i < Obj.n; i++){
+		for(int j = 0; j < p; j++){
+			TEMP.grades[n + i][j] = Obj.grades[i][j];
+		}
+	}
+	output_file_p4 << "++++++++ P4 INFORMATION FROM " << objectName << " AND " << Obj.objectName << " HAVE BEEN ADDED." << endl; 
+	output_file_p4 << "++++++++ P4 END ++++" << endl;
+
+	return  TEMP;
 }
+

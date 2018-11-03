@@ -25,9 +25,10 @@ The prototype for OVERLOADED_BURSAR class is defined as follows:
                         // instantiate object B of class OVERLOADED_BURSAR 
 			// with nam ObjName1, x students and y exams;
 
-        OVERLOADED_BURSAR(void);  // constructor 2:
-			// Example: OVERLOADED_BURSAR B;
+        OVERLOADED_BURSAR(char *);  // constructor 2:
+			// Example: OVERLOADED_BURSAR B("Obj_B");
                         // instantiate object B of class OVERLOADED_BURSAR
+			// with object name Obj_B;
 			// there are 0 students;
 
 	void PRINT_IDS(void); // Example: B.PRINT_IDS();
@@ -320,10 +321,9 @@ where objName1 and objName2 are the names for B1 and B2 objects, respectively.
 For simplicity, all names and ids are assumed to be unique.
 
 The total number of students in TEMP should not exceed 20. Also the number
-of projects in B1 and B2 must match. If not, the output to out.4.1 is:
-
-If total number of students after adding is less than 11,
-then it prints the following output to out.4:
+of projects in B1 and B2 must match. In addition, the total number of students 
+after adding should not exceed 20. In both cases, it prints the following 
+output to out.4:
 
 	++++++++ P4 START ++++
 	++++++++ P4 OUTPUT FROM OVERLOADED OPERATOR + METHOD FOR OBJECT objName1:
